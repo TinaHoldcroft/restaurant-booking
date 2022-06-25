@@ -166,7 +166,7 @@ function BookingForm() {
                             label='Number of persons (max 20)'
                             id='amount'
                             type='text'
-                            inputmode='numeric' pattern='[0-9]*'
+                            inputMode='numeric' pattern='[0-9]*'
                             name='amount'
 
                             aria-describedby='feedback'
