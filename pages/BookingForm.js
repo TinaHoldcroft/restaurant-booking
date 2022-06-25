@@ -52,8 +52,6 @@ const validationSchema = Yup.object({
 })
 
 function BookingForm() {
-    const hour = new Date().getHours()
-    const min = new Date().getMinutes()
 
     const formik = useFormik({
         initialValues: {
@@ -61,8 +59,8 @@ function BookingForm() {
             lastName: '',
             email: '',
             phoneNumber: '',
-            arrival: `${hour}:${min}`,
-            departure: `${hour + 1}:${min}`,
+            arrival: '10:00',
+            departure: '11:00',
             amount: '10',
             type: 'private',
             comment: ''
