@@ -24,6 +24,7 @@ export function TextInputLiveFeedback({
             <input
                 id={id}
                 onFocus={handleFocus}
+                aria-describedby='feedback'
                 {...props}
                 {...field}
             />

@@ -83,7 +83,7 @@ function BookingForm() {
     return (
         <>
             {!formVisible &&
-                <>submitted</>
+                <>submit</>
             }
 
             {formVisible &&
@@ -92,6 +92,8 @@ function BookingForm() {
                     className='booking-form'
                     ref={inputRef}
                     onSubmit={formik.handleSubmit}
+                    action="/submit"
+                    method="POST"
                 >
                     <FormikProvider
                         value={formik}
@@ -102,7 +104,6 @@ function BookingForm() {
                                 id='firstName'
                                 type='text'
                                 name='firstName'
-                                aria-describedby='feedback'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.firstName}
@@ -112,7 +113,6 @@ function BookingForm() {
                                 id='lastName'
                                 type='text'
                                 name='lastName'
-                                aria-describedby='feedback'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.lastName}
@@ -123,7 +123,6 @@ function BookingForm() {
                             id='email'
                             type='email'
                             name='email'
-                            aria-describedby='feedback'
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
                             value={formik.values.email}
@@ -133,7 +132,6 @@ function BookingForm() {
                             id='phoneNumber'
                             type='tel'
                             name='phoneNumber'
-                            aria-describedby='feedback'
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
                             value={formik.values.phoneNumber}
@@ -145,7 +143,6 @@ function BookingForm() {
                             name='arrival'
                             min='10:00'
                             max='23:00'
-                            aria-describedby='feedback'
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
                             value={formik.values.arrival}
@@ -157,7 +154,6 @@ function BookingForm() {
                             name='departure'
                             min={formik.values.arrival}
                             max='23:00'
-                            aria-describedby='feedback'
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
                             value={formik.values.departure}
@@ -168,8 +164,6 @@ function BookingForm() {
                             type='text'
                             inputMode='numeric' pattern='[0-9]*'
                             name='amount'
-
-                            aria-describedby='feedback'
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
                             value={formik.values.amount}
@@ -187,12 +181,12 @@ function BookingForm() {
                             <option value='business'>business</option>
                         </select>
 
-                        <textarea 
-                        id='comment'
-                        name="comment" 
-                        rows='5' 
-                        onChange={formik.handleChange}
-                        value={formik.values.comment}
+                        <textarea
+                            id='comment'
+                            name="comment"
+                            rows='5'
+                            onChange={formik.handleChange}
+                            value={formik.values.comment}
                         />
 
                         <div>
