@@ -1,6 +1,5 @@
 .success-page {
     @include flex(column nowrap, flex-start, center, auto, flex-start, 1rem);
-    margin-top: -2rem;
     width: 100%;
     h1 {
         width: 100%;

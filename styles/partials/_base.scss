@@ -18,7 +18,7 @@ body {
 body {
     @include flex(column nowrap, flex-start, center, auto, flex-start, 0);
     background-color: #eeeeee;
-    margin-bottom: 10rem;
+    margin-bottom: 4rem;
 }
 main {
     @include flex(column nowrap, flex-start, center, auto, flex-start, 0);
