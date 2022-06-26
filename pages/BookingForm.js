@@ -176,12 +176,10 @@ function BookingForm() {
                                 value={formik.values.departure}
                                 helptext='Opening hours between 10:00 and 23:00'
                             />
-
                             <TextInputLiveFeedback
                                 label='Number of Guests'
                                 id='amount'
                                 type='text'
-
                                 name='amount'
                                 className='input'
                                 onBlur={formik.handleBlur}
@@ -195,7 +193,7 @@ function BookingForm() {
                             onChange={formik.handleChange}
                             form='BookingForm'
                         >
-                            <legend name='type'>Select Type</legend>
+                            <legend>Select Type</legend>
                             <TextInputLiveFeedback
                                 label='Private'
                                 id='private'
