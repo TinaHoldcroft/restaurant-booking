@@ -4,7 +4,8 @@ import { useField } from "formik";
 export function TextInputLiveFeedback({
     label,
     id,
-    children,
+    helptext,
+    className,
     ...props
 }) {
 
@@ -14,31 +15,34 @@ export function TextInputLiveFeedback({
     const showFeedback = (!!didFocus && field.value.trim().length > 2) || meta.touched;
 
     return (
-        <div
-            className={showFeedback ? (
-                meta.error ?
-                    'input invalid' : 'input valid'
-            ) : null}
-        >
+        <div className={showFeedback ? (meta.error ? `${className} invalid` : `${className} valid`) : className }>
             <label htmlFor={id}>{label}</label>
-            <input
-                id={id}
-                onFocus={handleFocus}
-                {...props}
-                {...field}
-            />
-            {children}
+            <div>
+                <input
+                    id={id}
+                    onFocus={handleFocus}
+                    {...props}
+                    {...field}
+                />
+            </div>
             {showFeedback ? (
                 <div
                     id={`${id}-feedback`}
                     aria-live="polite"
                     className="feedback"
                 >
-                    {meta.error ? meta.error :
-                        <span>✓</span>
-                    }
+                    <p>{meta.error}</p>
+                    <div className="marker-wrapper">
+                        {meta.error ?
+                            <span className="marker xmark">✖</span>
+                            :
+                            <span className="marker checkmark">✔</span>
+                        }
+                    </div>
                 </div>
-            ) : null}
+            ) : (
+                <p className="helptext">{helptext}</p>
+            )}
         </div>
     );
 }

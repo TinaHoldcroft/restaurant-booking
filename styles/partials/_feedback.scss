@@ -1,0 +1,40 @@
+.valid {
+    border: solid 3px $green;
+    background-color: #e2e2e2;
+}
+.invalid {
+    border: solid 3px $red;
+    background-color: #e2e2e2;
+}
+.helptext {
+    height: 1em;
+    font-size: 12px;
+}
+.marker-wrapper {
+    @include flex(row nowrap, flex-end, center, center, center, 0);
+    position: relative;
+    top: -7.5rem;
+    margin-left: 0.5rem;
+    width: 100%;
+}
+.marker {
+    @include flex(row nowrap, center, center, center, center, 0);
+    height: 29px;
+    width: 30px;
+    border-radius: 50%;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.xmark {
+    background-color: $red;
+    color: #ffffff;
+}
+.checkmark {
+    margin-top: 1rem;
+    background-color: $green;
+    color: #ffffff;
+}
+.feedback {
+    height: 1em;
+    font-weight: 500;
+}

@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
-
 import * as Yup from 'yup'
 import { useFormik, FormikProvider, Field } from 'formik'
 import { TextInputLiveFeedback } from '../components/InstantValidation'
+import Success from './Success'
 
 const validationSchema = Yup.object({
     firstName: Yup
@@ -23,12 +23,12 @@ const validationSchema = Yup.object({
         ),
     email: Yup
         .string()
-        .email('invalid e-mail address')
+        .email('Invalid e-mail address')
         .required('We need your e-mail address'),
     phoneNumber: Yup
         .string()
-        .min(8, 'minimum 8 digits')
-        .required('We need your phonenumber')
+        .min(8, 'Minimum 8 digits')
+        .required('We need your phone number')
         .matches(
             /^[0-9]+$/,
             'Only numbers in this field'
@@ -44,13 +44,10 @@ const validationSchema = Yup.object({
 
     amount: Yup
         .number()
-        .min(1)
-        .max(20)
+        .min(1, 'Minimum 1 guest')
+        .max(20, 'Maximum 20 guest')
         .required('We need the amount of guests'),
-    type: Yup
-        .string()
 })
-
 function BookingForm() {
 
     const formik = useFormik({
@@ -59,9 +56,9 @@ function BookingForm() {
             lastName: '',
             email: '',
             phoneNumber: '',
-            arrival: '10:00',
-            departure: '11:00',
-            amount: '10',
+            arrival: '12:00',
+            departure: '13:00',
+            amount: '',
             type: 'private',
             comment: ''
         },
@@ -74,17 +71,29 @@ function BookingForm() {
         },
     })
 
-
     const inputRef = useRef();
     const [formVisible, setFormVisible] = useState(true);
 
-    return (
-        <>
-            {!formVisible &&
-                <>submit</>
-            }
 
-            {formVisible &&
+
+    return (
+        <section className='form-wrapper'>
+            {!formVisible && <>
+                <Success
+                    firstName={formik.values.firstName}
+                    lastName={formik.values.lastName}
+                    amount={formik.values.amount}
+                    type={formik.values.type}
+                    email={formik.values.email}
+                    phone={formik.values.phoneNumber}
+                    arrival={formik.values.arrival}
+                    departure={formik.values.departure}
+                />
+
+            </>}
+
+            {formVisible && <>
+                <h1>Book Table</h1>
                 <form
                     id='BookingForm'
                     className='booking-form'
@@ -102,6 +111,7 @@ function BookingForm() {
                                 id='firstName'
                                 type='text'
                                 name='firstName'
+                                className='input'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.firstName}
@@ -111,90 +121,115 @@ function BookingForm() {
                                 id='lastName'
                                 type='text'
                                 name='lastName'
+                                className='input'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.lastName}
                             />
                         </div>
-                        <TextInputLiveFeedback
-                            label='E-mail'
-                            id='email'
-                            type='email'
-                            name='email'
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                            value={formik.values.email}
-                        />
-                        <TextInputLiveFeedback
-                            label='phoneNumber'
-                            id='phoneNumber'
-                            type='tel'
-                            name='phoneNumber'
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                            value={formik.values.phoneNumber}
-                        />
-                        <TextInputLiveFeedback
-                            label='arrival'
-                            id='arrival'
-                            type='time'
-                            name='arrival'
-                            min='10:00'
-                            max='23:00'
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                            value={formik.values.arrival}
-                        />
-                        <TextInputLiveFeedback
-                            label='departure'
-                            id='departure'
-                            type='time'
-                            name='departure'
-                            min={formik.values.arrival}
-                            max='23:00'
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                            value={formik.values.departure}
-                        />
-                        <TextInputLiveFeedback
-                            label='Number of persons (max 20)'
-                            id='amount'
-                            type='text'
-                            inputMode='numeric' pattern='[0-9]*'
-                            name='amount'
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                            value={formik.values.amount}
+                        <div className='form-row'>
+                            <TextInputLiveFeedback
+                                label='E-mail'
+                                id='email'
+                                type='email'
+                                name='email'
+                                className='input'
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.email}
+                            />
+                            <TextInputLiveFeedback
+                                label='Phone Number'
+                                id='phoneNumber'
+                                type='tel'
+                                name='phoneNumber'
+                                className='input'
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.phoneNumber}
+                            />
+                        </div>
+                        <div className='form-row'>
+                            <TextInputLiveFeedback
+                                label='Arrival'
+                                id='arrival'
+                                type='time'
+                                name='arrival'
+                                min='10:00'
+                                max='23:00'
+                                className='input'
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.arrival}
+                                helptext='Opening hours between 10:00 and 23:00'
+                            />
+                            <TextInputLiveFeedback
+                                label='Departure'
+                                id='departure'
+                                type='time'
+                                name='departure'
+                                min={formik.values.arrival}
+                                max='23:00'
+                                className='input'
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.departure}
+                                helptext='Opening hours between 10:00 and 23:00'
+                            />
 
-                        />
+                            <TextInputLiveFeedback
+                                label='Number of Guests'
+                                id='amount'
+                                type='text'
 
-                        <label htmlFor='type'>Type:</label>
-                        <select
-                            onBlur={formik.handleBlur}
+                                name='amount'
+                                className='input'
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.amount}
+                                helptext='Maximum 20 guests per booking'
+                            />
+                        </div>
+
+                        <fieldset
                             onChange={formik.handleChange}
-                            name='type'
-                            id='type'
+                            form='BookingForm'
                         >
-                            <option value='private'>private</option>
-                            <option value='business'>business</option>
-                        </select>
+                            <legend name='type'>Select Type</legend>
+                            <TextInputLiveFeedback
+                                label='Private'
+                                id='private'
+                                type='radio'
+                                name='type'
+                                value='private'
+                                className='radio'
+                            />
+                            <TextInputLiveFeedback
+                                label='Business'
+                                id='business'
+                                type='radio'
+                                name='type'
+                                value='business'
+                                className='radio'
+                            />
+                        </fieldset>
+                        <div className='comment'>
+                            <label htmlFor='comment'>Comment</label>
+                            <textarea
+                                id='comment'
+                                name="comment"
+                                onChange={formik.handleChange}
+                                value={formik.values.comment}
+                            />
+                        </div>
 
-                        <textarea
-                            id='comment'
-                            name="comment"
-                            rows='5'
-                            onChange={formik.handleChange}
-                            value={formik.values.comment}
-                        />
-
-                        <div>
-                            <button type='submit'>submit</button>
+                        <div className='btn-wrapper'>
+                            <button type='submit'>Submit</button>
                         </div>
                     </FormikProvider>
                 </form>
-            }
-
-        </>
+            </>}
+        </section>
     );
 }
 

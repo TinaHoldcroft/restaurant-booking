@@ -1,0 +1,20 @@
+@mixin flex(
+    $flow: column nowrap,
+    $justify-content: flex-start,
+    $align-items: stretch,
+    $align-self: auto,
+    $align-content: flex-start,
+    $gap: 1rem
+) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: $flow;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    align-self: $align-self;
+    align-content: $align-content;
+    gap: $gap;
+}
