@@ -1,0 +1,25 @@
+.success-page {
+    @include flex(column nowrap, flex-start, center, auto, flex-start, 1rem);
+    margin-top: -2rem;
+    width: 100%;
+    h1 {
+        width: 100%;
+    }
+    ul {
+        @include flex(column nowrap,flex-start, stretch, auto, flex-start, 1rem);
+        list-style: none;
+        border-radius: 5px;
+        border: solid 1px $medium-grey;
+        background-color: $light-grey;
+        padding: 2rem;
+    }
+    li {
+        @include flex(row nowrap, space-between, center, auto, flex-start, 5rem);
+        border-bottom: solid 1px $medium-grey;
+        padding-bottom: 1em;
+        letter-spacing: 0.025em;
+        &:last-of-type {
+            @include flex(column nowrap, flex-start, stretch, auto, flex-start, 1rem);
+        }
+    }
+}

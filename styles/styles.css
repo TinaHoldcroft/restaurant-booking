@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: montserrat, sans-serif;
+  outline-color: #30588e;
 }
 
 html {
@@ -90,24 +91,45 @@ form input[type=time] {
   width: 100%;
   height: 2.5em;
   padding: 0 0.75em;
-  border: solid 1px #929292;
   border-radius: 3px;
   font-size: 1em;
   font-weight: 500;
   letter-spacing: 0.05em;
   background-color: #ffffff;
+  border: solid 1px #cccccc;
+}
+form input[type=text]:hover,
+form input[type=tel]:hover,
+form input[type=email]:hover,
+form input[type=time]:hover {
+  border: solid 1px #cccccc;
+  outline: solid 2px #cccccc;
 }
 form input[type=text]:focus,
 form input[type=tel]:focus,
 form input[type=email]:focus,
 form input[type=time]:focus {
-  border: solid 3px #000000;
-  outline: none;
+  border: solid 1px #000000;
+  outline: solid 2px #000000;
 }
 form input[type=radio] {
   height: 1rem;
   width: 1rem;
   accent-color: #30588e;
+}
+form textarea {
+  min-height: 5rem;
+  border-radius: 3px;
+  border: solid 1px #cccccc;
+  padding: 0.75em;
+}
+form textarea:hover {
+  border: solid 1px #cccccc;
+  outline: solid 2px #cccccc;
+}
+form textarea:focus {
+  border: solid 1px #000000;
+  outline: solid 2px #000000;
 }
 
 .form-row {
@@ -162,33 +184,6 @@ form input[type=radio] {
   padding: 0.75em;
   flex: 2.17;
 }
-.comment textarea {
-  min-height: 5rem;
-  border-radius: 3px;
-  border: solid 1px #cccccc;
-}
-.comment textarea:focus {
-  border: solid 3px #000000;
-  outline: none;
-}
-
-.btn-wrapper button {
-  border: solid 1px #cccccc;
-  background-color: #f3f3f3;
-  border-radius: 5px;
-  padding: 1em 1.5em;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-.btn-wrapper button:focus, .btn-wrapper button:hover {
-  border: solid 1px #30588e;
-  outline: solid 2px #30588e;
-  color: #30588e;
-}
-.btn-wrapper button:active {
-  background-color: #30588e;
-  color: #ffffff;
-}
 
 fieldset {
   display: -webkit-box;
@@ -229,8 +224,37 @@ fieldset .radio {
   background-color: transparent;
   width: 7rem;
 }
+fieldset .radio:focus-within input, fieldset .radio:hover input {
+  outline-offset: 0.25em;
+  outline-width: 2px;
+  outline-style: dashed;
+}
+fieldset .radio:focus-within label, fieldset .radio:hover label {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #30588e;
+}
 fieldset .feedback {
   display: none;
+}
+
+.btn-wrapper button {
+  border: solid 1px #cccccc;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  padding: 1em 1.5em;
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+}
+.btn-wrapper button:focus, .btn-wrapper button:hover {
+  border: solid 1px #30588e;
+  outline: solid 2px #30588e;
+  color: #30588e;
+}
+.btn-wrapper button:active {
+  background-color: #30588e;
+  color: #ffffff;
 }
 
 .valid {
@@ -299,6 +323,72 @@ fieldset .feedback {
 .feedback {
   height: 1em;
   font-weight: 500;
+}
+
+.success-page {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: auto;
+  align-content: flex-start;
+  gap: 1rem;
+  margin-top: -2rem;
+  width: 100%;
+}
+.success-page h1 {
+  width: 100%;
+}
+.success-page ul {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-self: auto;
+  align-content: flex-start;
+  gap: 1rem;
+  list-style: none;
+  border-radius: 5px;
+  border: solid 1px #cccccc;
+  background-color: #f3f3f3;
+  padding: 2rem;
+}
+.success-page li {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: auto;
+  align-content: flex-start;
+  gap: 5rem;
+  border-bottom: solid 1px #cccccc;
+  padding-bottom: 1em;
+  letter-spacing: 0.025em;
+}
+.success-page li:last-of-type {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-self: auto;
+  align-content: flex-start;
+  gap: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

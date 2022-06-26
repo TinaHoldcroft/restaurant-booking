@@ -48,6 +48,7 @@ const validationSchema = Yup.object({
         .max(20, 'Maximum 20 guest')
         .required('We need the amount of guests'),
 })
+
 function BookingForm() {
 
     const formik = useFormik({
@@ -65,16 +66,14 @@ function BookingForm() {
 
         validationSchema: validationSchema,
 
-        onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+        onSubmit: function () {
+            alert('From submitted')
             setFormVisible(false)
         },
     })
 
     const inputRef = useRef();
     const [formVisible, setFormVisible] = useState(true);
-
-
 
     return (
         <section className='form-wrapper'>
@@ -88,6 +87,7 @@ function BookingForm() {
                     phone={formik.values.phoneNumber}
                     arrival={formik.values.arrival}
                     departure={formik.values.departure}
+                    comment={formik.values.comment}
                 />
 
             </>}
