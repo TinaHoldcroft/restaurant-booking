@@ -57,8 +57,8 @@ function BookingForm() {
             lastName: '',
             email: '',
             phoneNumber: '',
-            arrival: '12:00',
-            departure: '13:00',
+            arrival: '',
+            departure: '',
             amount: '',
             type: 'private',
             comment: ''
@@ -222,7 +222,8 @@ function BookingForm() {
                         </div>
 
                         <div className='btn-wrapper'>
-                            <button type='submit'>Submit</button>
+                            <button id='submit' type='submit'>Submit</button>
+                            <button id='reset' type='reset'>Reset</button>
                         </div>
                     </FormikProvider>
                 </form>

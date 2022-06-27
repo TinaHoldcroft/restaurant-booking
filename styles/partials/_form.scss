@@ -115,23 +115,45 @@ fieldset {
     }
 }
 .btn-wrapper {
+    @include flex(row nowrap, flex-start, center, auto, flex-start, 1rem);
+
     button {
-        border: solid 1px $medium-grey;
-        background-color: $light-grey;
+
         border-radius: 5px;
         padding: 1em 1.5em;
         font-weight: 700;
         font-size: 1em;
         letter-spacing: 0.05em;
-        &:focus,
-        &:hover {
-            border: solid 1px $blue;
-            outline: solid 2px $blue;
-            color: $blue;
-        }
-        &:active {
-            background-color: $blue;
-            color: $white;
-        }
+
+    }
+}
+#submit {
+    background-color: $blue;
+    color: $white;
+    border: solid 2px $blue;
+    &:focus,
+    &:hover {
+        border: solid 2px $blue;
+        background-color: $white;
+        color: $black;
+    }
+    &:active {
+        border: solid 2px $medium-grey;
+        background-color: $light-grey;
+    }
+}
+#reset {
+    background-color: $light-grey;
+    border: solid 2px $blue;
+    &:focus,
+    &:hover {
+        background-color: $blue;
+        color: $white;
+        border: solid 2px $blue;
+    }
+    &:active {
+        border: solid 2px $medium-grey;
+        background-color: $light-grey;
+        color: $black;
     }
 }
