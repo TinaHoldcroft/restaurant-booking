@@ -99,6 +99,7 @@ function BookingForm() {
         const response = await fetch(endpoint, options)
         const result = await response.json()
         alert(`${result.data}`)
+        setFormVisible
     }
 
     const inputRef = useRef();
