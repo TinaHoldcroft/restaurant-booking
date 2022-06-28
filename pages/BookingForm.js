@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
 import * as Yup from 'yup'
-import { useFormik, FormikProvider, Field } from 'formik'
+import { useFormik, FormikProvider } from 'formik'
 import { TextInputLiveFeedback } from '../components/InstantValidation'
 import Success from './Success'
 
+
 const validationSchema = Yup.object({
+
     firstName: Yup
         .string()
         .max(50, 'Maximun 50 characters')
@@ -33,7 +35,6 @@ const validationSchema = Yup.object({
             /^[0-9]+$/,
             'Only numbers in this field'
         ),
-
     arrival: Yup
         .string()
         .required('We need your arrival time'),
@@ -41,13 +42,13 @@ const validationSchema = Yup.object({
     departure: Yup
         .string()
         .required('We need your departure time'),
-
     amount: Yup
         .number()
         .min(1, 'Minimum 1 guest')
         .max(20, 'Maximum 20 guest')
         .required('We need the amount of guests'),
 })
+
 
 function BookingForm() {
 
@@ -66,11 +67,39 @@ function BookingForm() {
 
         validationSchema: validationSchema,
 
-        onSubmit: function () {
-            alert('From submitted')
-            setFormVisible(false)
-        },
+        /* onSubmit: async () => { setFormVisible(false)} */
     })
+
+    async function handleSubmit(event) {
+
+        event.preventDefault()
+
+        const data = {
+            firstName: event.target.firstName.value,
+            lastName: event.target.lastName.value,
+            email: event.target.email.value,
+            phoneNumber: event.target.phoneNumber.value,
+            arrival: event.target.arrival.value,
+            departure: event.target.departure.value,
+            amount: event.target.amount.value,
+            type: event.target.type.value,
+            comment: event.target.comment.value,
+        }
+
+        const JSONdata = JSON.stringify(data)
+        const endpoint = '/api/form'
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSONdata,
+        }
+
+        const response = await fetch(endpoint, options)
+        const result = await response.json()
+        alert(`${result.data}`)
+    }
 
     const inputRef = useRef();
     const [formVisible, setFormVisible] = useState(true);
@@ -89,7 +118,6 @@ function BookingForm() {
                     departure={formik.values.departure}
                     comment={formik.values.comment}
                 />
-
             </>}
 
             {formVisible && <>
@@ -98,13 +126,9 @@ function BookingForm() {
                     id='BookingForm'
                     className='booking-form'
                     ref={inputRef}
-                    onSubmit={formik.handleSubmit}
-                    action="/submit"
-                    method="POST"
+                    onSubmit={handleSubmit}
                 >
-                    <FormikProvider
-                        value={formik}
-                    >
+                    <FormikProvider value={formik} >
                         <div className='form-row'>
                             <TextInputLiveFeedback
                                 label='First Name'

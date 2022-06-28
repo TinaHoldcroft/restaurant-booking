@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Success(props) {
+export default function Success(props) {
 
     return (
         <div className='success-page'>
@@ -17,5 +17,3 @@ export function Success(props) {
         </div>
     );
 }
-
-export default Success;
