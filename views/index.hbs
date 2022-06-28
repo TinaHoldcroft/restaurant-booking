@@ -1,70 +1,63 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>{{{title}}}</title>
     <link rel="stylesheet" href="/static/style.css">
     <script src="/static/script.js"></script>
 </head>
+
 <body>
     <h1>Book table</h1>
+
     <form id="infoForm" action="/submit" method="POST">
-        <table>
-            <tr>
-                <td>
-                    First name*:<br>
-                    <input type="text" name="firstName">
-                </td>
-                <td>
-                    Last name*:<br>
-                    <input type="text" name="lastName">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Number of persons (max 20)*:<br>
-                    <input type="text" name="amount">
-                </td>
-                <td>
-                    Type:<br>
-                    <input type="radio" name="type" value="business"> Business<br>
-                    <input type="radio" name="type" value="private" checked> Private<br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Email*:<br>
-                    <input type="text" name="mail">
-                </td>
-                <td>
-                    Phone*:<br>
-                    <input type="text" name="phoneNumber">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Arrival (between 10:00 and 23:00)*:<br>
-                    <input type="text" name="arrival">
-                </td>
-                <td>
-                    Departure (between 10:00 and 23:00)*:<br>
-                    <input type="text" name="departure">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    Comment:<br>
-                    <textarea name="comment" rows="10" cols="50"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <a id="submit" class="button" href="#">Book</a>
-                    <a id="reset" class="button" href="#">Cancel</a>
-                </td>
-            </tr>
-        </table>
-        <p>* - Required fields</p>
+        <div>
+            <label for="first-name">First name</label>
+            <input id="firstName" type="text" name="firstName" pattern="[A-Za-z ]{1,}" required>
+        </div>
+        <div>
+            <label for="lastName">Last name</label>
+            <input id="lastName" type="text" name="lastName" pattern="[A-Za-z ]{1,}" required>
+        </div>
+        <div>
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" name="amount" min="1" max="20" pattern="[0-9]{8,}" required>
+        </div>
+        <div>
+            <feildset form="infoForm">
+                <legend>Type</legend>
+                <input id="business" type="radio" name="type" value="business">
+                <label for="business">Business</label>
+                <input id="private" type="radio" name="type" value="private" checked>
+                <label for="private">Private</label>
+            </feildset>
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="mail" required>
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" name="phoneNumber" pattern="[0-9]{8,}" required>
+        </div>
+        <div>
+            <label for="arrival">Arrival</label>
+            <input id="arrival" type="time" name="arrival" min="10:00" max="23:00" required>
+        </div>
+        <div>
+            <label for="departure">Departure</label>
+            <input id="arrival" type="time" min="10:00" max="23:00" name="departure" required>
+        </div>
+        <div>
+            <label for="comment">Comment</label>
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <button id="submit" class="button" type="submit">Book</button>
+            <button id="reset" class="button" type="reset">Reset</button>
+        </div>
     </form>
 </body>
+
 </html>
