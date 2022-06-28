@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import * as Yup from 'yup'
 import { useFormik, FormikProvider } from 'formik'
 import { TextInputLiveFeedback } from '../components/InstantValidation'
 import Success from './Success'
-import { useLocalStorage } from "../hooks/useLocalStorage";
+//import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const validationSchema = Yup.object({
 
@@ -51,13 +51,14 @@ const validationSchema = Yup.object({
 
 function BookingForm() {
 
+    /*
     const [firstName, setFirstName] = useLocalStorage("firstName", "");
     const [lastName, setLastName] = useLocalStorage("lastName", "");
     const [email, setEmail] = useLocalStorage("email", "");
     const [phoneNumber, setPhoneNumber] = useLocalStorage("phoneNumber", "");
     const [amount, setAmount] = useLocalStorage("amount", "");
     const [comment, setComment] = useLocalStorage("comment", "");
-    const [test, setTest] = useLocalStorage("test", "");
+    */
 
     const formik = useFormik({
 
@@ -159,8 +160,6 @@ function BookingForm() {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.firstName}
-                                onKeyUp={() => setFirstName(formik.values.firstName)}
-                             
                             />
                             <TextInputLiveFeedback
                                 label='Last Name'
@@ -171,8 +170,6 @@ function BookingForm() {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.lastName}
-                                onKeyUp={() => setLastName(formik.values.lastName)}
-                             
                             />
                         </div>
                         <div className='form-row'>
@@ -185,8 +182,6 @@ function BookingForm() {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.email}
-                                onKeyUp={() => setEmail(formik.values.email)}
-                             
                             />
                             <TextInputLiveFeedback
                                 label='Phone Number'
@@ -197,8 +192,6 @@ function BookingForm() {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.phoneNumber}
-                                onKeyUp={() => setPhoneNumber(formik.values.phoneNumber)}
-                             
                             />
                         </div>
                         <div className='form-row'>
@@ -214,7 +207,6 @@ function BookingForm() {
                                 onChange={formik.handleChange}
                                 value={formik.values.arrival}
                                 helptext='Opening hours between 10:00 and 23:00'
-                             
                             />
                             <TextInputLiveFeedback
                                 label='Departure'
@@ -228,7 +220,6 @@ function BookingForm() {
                                 onChange={formik.handleChange}
                                 value={formik.values.departure}
                                 helptext='Opening hours between 10:00 and 23:00'
-                             
                             />
                             <TextInputLiveFeedback
                                 label='Number of Guests'
@@ -240,8 +231,6 @@ function BookingForm() {
                                 onChange={formik.handleChange}
                                 value={formik.values.amount}
                                 helptext='Maximum 20 guests per booking'
-                                onKeyUp={() => setAmount(formik.values.amount)}
-                             
                             />
                         </div>
 

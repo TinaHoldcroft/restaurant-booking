@@ -15,7 +15,7 @@ export function TextInputLiveFeedback({
     const showFeedback = (!!didFocus && field.value.trim().length > 2) || meta.touched;
 
     return (
-        <div className={showFeedback ? (meta.error ? `${className} invalid` : `${className} valid`) : className }>
+        <div className={showFeedback ? (meta.error ? `${className} invalid` : `${className} valid`) : className}>
             <label htmlFor={id}>{label}</label>
             <div>
                 <input

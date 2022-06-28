@@ -1,4 +1,4 @@
-const Layout = ({ children }) => {
+function Layout({ children }) {
 
     return (
         <main>

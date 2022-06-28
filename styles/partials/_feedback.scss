@@ -1,10 +1,10 @@
 .valid {
     border: solid 3px $green;
-    background-color: #e2e2e2;
+    background-color: $error-bg;
 }
 .invalid {
     border: solid 3px $red;
-    background-color: #e2e2e2;
+    background-color: $error-bg;
 }
 .helptext {
     height: 1em;
@@ -27,12 +27,12 @@
 }
 .xmark {
     background-color: $red;
-    color: #ffffff;
+    color: $white;
 }
 .checkmark {
     margin-top: 1rem;
     background-color: $green;
-    color: #ffffff;
+    color: $white;
 }
 .feedback {
     height: 1em;
