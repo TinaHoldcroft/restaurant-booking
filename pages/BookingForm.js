@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, {useRef, useState} from 'react'
 import * as Yup from 'yup'
-import { useFormik, FormikProvider } from 'formik'
-import { TextInputLiveFeedback } from '../components/InstantValidation'
+import {FormikProvider, useFormik} from 'formik'
+import {TextInputLiveFeedback} from '../components/InstantValidation'
 import Success from './Success'
-//import { useLocalStorage } from "../hooks/useLocalStorage";
+import {useLocalStorage} from "../hooks/useLocalStorage";
 
 const validationSchema = Yup.object({
 
@@ -50,40 +50,39 @@ const validationSchema = Yup.object({
 })
 
 function BookingForm() {
-
-    /*
     const [firstName, setFirstName] = useLocalStorage("firstName", "");
     const [lastName, setLastName] = useLocalStorage("lastName", "");
     const [email, setEmail] = useLocalStorage("email", "");
     const [phoneNumber, setPhoneNumber] = useLocalStorage("phoneNumber", "");
+    const [arrival, setArrival] = useLocalStorage("arrival", "");
+    const [departure, setDeparture] = useLocalStorage("departure", "");
     const [amount, setAmount] = useLocalStorage("amount", "");
+    const [type, setType] = useLocalStorage("type", "private");
     const [comment, setComment] = useLocalStorage("comment", "");
-    */
 
     const formik = useFormik({
-
         initialValues: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber: '',
-            arrival: '',
-            departure: '',
-            amount: '',
-            type: 'private',
-            comment: ''
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phoneNumber: phoneNumber,
+            arrival: arrival,
+            departure: departure,
+            amount: amount,
+            type: type,
+            comment: comment
         },
-
         validationSchema: validationSchema
     })
 
     const inputRef = useRef();
     const [formVisible, setFormVisible] = useState(true);
 
-    function handleReset() { formik.resetForm() }
+    function handleReset() {
+        formik.resetForm()
+    }
 
     async function handleSubmit(event) {
-
         event.preventDefault()
         formik.handleSubmit()
 
@@ -113,11 +112,11 @@ function BookingForm() {
             .then(async (res) => {
                 const json = await res.json()
                 if (res.ok) {
-                    console.log("OK!");
+                    console.log("ok")
                     alert(json.data)
                     setFormVisible(false)
                 } else {
-                    console.log("error!");
+                    console.log("error")
                     alert(json.data)
                 }
             })
@@ -149,7 +148,7 @@ function BookingForm() {
                     onSubmit={handleSubmit}
                     onReset={handleReset}
                 >
-                    <FormikProvider value={formik} >
+                    <FormikProvider value={formik}>
                         <div className='form-row'>
                             <TextInputLiveFeedback
                                 label='First Name'
@@ -159,6 +158,9 @@ function BookingForm() {
                                 className='input'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
+                                onInput={function (e) {
+                                    setFirstName(e.target.value)
+                                }}
                                 value={formik.values.firstName}
                             />
                             <TextInputLiveFeedback
@@ -169,6 +171,9 @@ function BookingForm() {
                                 className='input'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
+                                onInput={function (e) {
+                                    setLastName(e.target.value)
+                                }}
                                 value={formik.values.lastName}
                             />
                         </div>
@@ -181,6 +186,9 @@ function BookingForm() {
                                 className='input'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
+                                onInput={function (e) {
+                                    setEmail(e.target.value)
+                                }}
                                 value={formik.values.email}
                             />
                             <TextInputLiveFeedback
@@ -191,6 +199,9 @@ function BookingForm() {
                                 className='input'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
+                                onInput={function (e) {
+                                    setPhoneNumber(e.target.value)
+                                }}
                                 value={formik.values.phoneNumber}
                             />
                         </div>
@@ -206,6 +217,9 @@ function BookingForm() {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.arrival}
+                                onInput={function (e) {
+                                    setArrival(e.target.value)
+                                }}
                                 helptext='Opening hours between 10:00 and 23:00'
                             />
                             <TextInputLiveFeedback
@@ -219,6 +233,9 @@ function BookingForm() {
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 value={formik.values.departure}
+                                onInput={function (e) {
+                                    setDeparture(e.target.value)
+                                }}
                                 helptext='Opening hours between 10:00 and 23:00'
                             />
                             <TextInputLiveFeedback
@@ -229,13 +246,19 @@ function BookingForm() {
                                 className='input'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
+                                onInput={function (e) {
+                                    setAmount(e.target.value)
+                                }}
                                 value={formik.values.amount}
                                 helptext='Maximum 20 guests per booking'
                             />
                         </div>
 
                         <fieldset
-                            onChange={formik.handleChange}
+                            onChange={function (e) {
+                                setType(e.target.value)
+                                formik.handleChange(e)
+                            }}
                             form='BookingForm'
                         >
                             <legend>Select Type</legend>
@@ -263,6 +286,9 @@ function BookingForm() {
                                 id='comment'
                                 name="comment"
                                 onChange={formik.handleChange}
+                                onInput={function (e) {
+                                    setComment(e.target.value)
+                                }}
                                 value={formik.values.comment}
                                 onKeyUp={() => setComment(formik.values.comment)}
                             />
