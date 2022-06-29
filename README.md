@@ -9,3 +9,5 @@ Then run the application:
 ```sh
 npm install
 ```
+
+Application will run on [http://localhost:3000/]
