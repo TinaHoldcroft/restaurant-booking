@@ -10,4 +10,4 @@ Then run the application:
 npm install
 ```
 
-Application will run on (http://localhost:3000/)[http://localhost:3000/]
+Application will run on [http://localhost:3000/](http://localhost:3000/)
