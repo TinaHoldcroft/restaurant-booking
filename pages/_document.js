@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
 
@@ -8,12 +8,13 @@ class MyDocument extends Document {
     }
 
     render() {
-        const lang = "en";
+        const lang = 'en'
 
         return (
             <Html lang={lang}>
                 <Head>
-                    <meta name="author" content="Tina Mary Holdcroft" />
+                    <meta name='author' content='Tina Mary Holdcroft' />
+                    <meta name='description' content='Finn exercise 01'/>
                 </Head>
 
                 <body>
@@ -25,4 +26,4 @@ class MyDocument extends Document {
     }
 }
 
-export default MyDocument;
+export default MyDocument

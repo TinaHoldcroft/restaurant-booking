@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import {FormikProvider, useFormik} from 'formik'
 import {TextInputLiveFeedback} from '../components/InstantValidation'
 import Success from './Success'
-import {useLocalStorage} from "../hooks/useLocalStorage";
+import {useLocalStorage} from '../hooks/useLocalStorage'
 
 const validationSchema = Yup.object({
 
@@ -50,15 +50,15 @@ const validationSchema = Yup.object({
 })
 
 function BookingForm() {
-    const [firstName, setFirstName] = useLocalStorage("firstName", "");
-    const [lastName, setLastName] = useLocalStorage("lastName", "");
-    const [email, setEmail] = useLocalStorage("email", "");
-    const [phoneNumber, setPhoneNumber] = useLocalStorage("phoneNumber", "");
-    const [arrival, setArrival] = useLocalStorage("arrival", "");
-    const [departure, setDeparture] = useLocalStorage("departure", "");
-    const [amount, setAmount] = useLocalStorage("amount", "");
-    const [type, setType] = useLocalStorage("type", "private");
-    const [comment, setComment] = useLocalStorage("comment", "");
+    const [firstName, setFirstName] = useLocalStorage('firstName', '')
+    const [lastName, setLastName] = useLocalStorage('lastName', '')
+    const [email, setEmail] = useLocalStorage('email', '')
+    const [phoneNumber, setPhoneNumber] = useLocalStorage('phoneNumber', '')
+    const [arrival, setArrival] = useLocalStorage('arrival', '')
+    const [departure, setDeparture] = useLocalStorage('departure', '')
+    const [amount, setAmount] = useLocalStorage('amount', '')
+    const [type, setType] = useLocalStorage('type', 'private')
+    const [comment, setComment] = useLocalStorage('comment', '')
 
     const formik = useFormik({
         initialValues: {
@@ -75,11 +75,13 @@ function BookingForm() {
         validationSchema: validationSchema
     })
 
-    const inputRef = useRef();
-    const [formVisible, setFormVisible] = useState(true);
+    const inputRef = useRef()
+    const [formVisible, setFormVisible] = useState(true)
 
     function handleReset() {
         formik.resetForm()
+        localStorage.clear()
+        location.reload()
     }
 
     async function handleSubmit(event) {
@@ -112,15 +114,15 @@ function BookingForm() {
             .then(async (res) => {
                 const json = await res.json()
                 if (res.ok) {
-                    console.log("ok")
+                    console.log('ok')
                     alert(json.data)
                     setFormVisible(false)
                 } else {
-                    console.log("error")
+                    console.log('error')
                     alert(json.data)
                 }
             })
-            .catch((err) => console.error(err));
+            .catch((err) => console.error(err))
     }
 
     return (
@@ -253,7 +255,6 @@ function BookingForm() {
                                 helptext='Maximum 20 guests per booking'
                             />
                         </div>
-
                         <fieldset
                             onChange={function (e) {
                                 setType(e.target.value)
@@ -279,21 +280,18 @@ function BookingForm() {
                                 className='radio'
                             />
                         </fieldset>
-
                         <div className='comment'>
                             <label htmlFor='comment'>Comment</label>
                             <textarea
                                 id='comment'
-                                name="comment"
+                                name='comment'
                                 onChange={formik.handleChange}
                                 onInput={function (e) {
                                     setComment(e.target.value)
                                 }}
                                 value={formik.values.comment}
-                                onKeyUp={() => setComment(formik.values.comment)}
                             />
                         </div>
-
                         <div className='btn-wrapper'>
                             <button id='submit' type='submit'>Submit</button>
                             <button id='reset' type='reset'>Reset</button>
@@ -302,7 +300,7 @@ function BookingForm() {
                 </form>
             </>}
         </section>
-    );
+    )
 }
 
-export default BookingForm;
+export default BookingForm

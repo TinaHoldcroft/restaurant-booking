@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import Layout from '../components/layout';
-import '../styles/styles.css';
+import Head from 'next/head'
+import Layout from '../components/layout'
+import '../styles/styles.css'
 
 function MyApp({ Component, pageProps }) {
 
@@ -19,4 +19,4 @@ function MyApp({ Component, pageProps }) {
     )
 }
 
-export default MyApp;
+export default MyApp

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default function Success(props) {
 
@@ -15,5 +15,5 @@ export default function Success(props) {
                 <li><b>Comment: </b>{props.comment}</li>
             </ul>
         </div>
-    );
+    )
 }
