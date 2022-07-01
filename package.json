@@ -1,5 +1,5 @@
 {
-  "name": "finn-exercise-01",
+  "name": "restaurant-booking",
   "version": "1.0.0",
   "description": "",
   "main": "bin/server.js",
