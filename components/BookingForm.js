@@ -1,9 +1,9 @@
-import React, {useRef, useState} from 'react'
+import React, { useRef, useState } from 'react'
 import * as Yup from 'yup'
-import {FormikProvider, useFormik} from 'formik'
-import {TextInputLiveFeedback} from '../components/InstantValidation'
+import { FormikProvider, useFormik } from 'formik'
+import { TextInputLiveFeedback } from './InstantValidation'
 import Success from './Success'
-import {useLocalStorage} from '../hooks/useLocalStorage'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const validationSchema = Yup.object({
 
