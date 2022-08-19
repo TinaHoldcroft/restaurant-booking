@@ -7,7 +7,7 @@ npm install
 Then run the application:
 
 ```sh
-npm install
+npm start
 ```
 
 Application will run on [http://localhost:3000/](http://localhost:3000/)
