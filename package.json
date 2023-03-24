@@ -17,7 +17,7 @@
     "express": "^4.14.0",
     "formik": "^2.2.9",
     "hbs": "^4.0.1",
-    "next": "^12.1.6",
+    "next": "^13.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "serve-static": "^1.11.2",
@@ -26,6 +26,6 @@
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.6",
     "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "^13.2.4"
   }
 }
