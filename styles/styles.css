@@ -54,7 +54,7 @@ main {
   gap: 0;
   background-color: #ffffff;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
 }
 @media (min-width: 800px) {
