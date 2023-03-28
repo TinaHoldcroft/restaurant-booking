@@ -1,15 +1,16 @@
 .valid {
-    border: solid 3px $green;
+    outline: solid 3px $green;
     background-color: $error-bg;
 }
 
 .invalid {
-    border: solid 3px $red;
+    outline: solid 3px $red;
     background-color: $error-bg;
 }
 
 .helptext {
-    height: 1em;
+    padding-left: 2px;
+    margin-bottom: 2px;
     font-size: 12px;
 }
 
@@ -44,4 +45,6 @@
 .feedback {
     height: 1em;
     font-weight: 500;
+    font-size: 14px;
+    padding-left: 2px;
 }

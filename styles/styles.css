@@ -1,3 +1,11 @@
+/*
+    @include respond-to('medium') {
+        //
+    }
+    @include respond-to('large') {
+        //
+    }
+*/
 @import url("https://use.typekit.net/rkp1fwe.css");
 * {
   padding: 0;
@@ -30,7 +38,6 @@ body {
   align-content: flex-start;
   gap: 0;
   background-color: #eeeeee;
-  margin-bottom: 4rem;
 }
 
 main {
@@ -46,11 +53,19 @@ main {
   align-content: flex-start;
   gap: 0;
   background-color: #ffffff;
-  width: 80vw;
-  max-width: 1280px;
   height: 100%;
-  min-height: 38rem;
+  width: 100%;
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+}
+@media (min-width: 800px) {
+  main {
+    width: 90vw;
+  }
+}
+@media (min-width: 1200px) {
+  main {
+    width: 1100px;
+  }
 }
 
 .sr-only:not(:focus):not(:active) {
@@ -65,12 +80,17 @@ main {
 
 .form-wrapper {
   width: 100%;
-  padding: 3rem 6rem 4rem 6rem;
+  padding: 1rem;
 }
 .form-wrapper h1 {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: solid 1px #cccccc;
+}
+@media (min-width: 800px) {
+  .form-wrapper {
+    padding: 3rem 6rem 4rem 6rem;
+  }
 }
 
 form {
@@ -84,7 +104,7 @@ form {
   align-items: stretch;
   align-self: auto;
   align-content: flex-start;
-  gap: 1rem;
+  gap: 1.15rem;
   width: 100%;
 }
 form label {
@@ -146,12 +166,27 @@ form .capitalize input {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
   align-self: auto;
   align-content: flex-start;
   gap: 1rem;
+}
+@media (min-width: 800px) {
+  .form-row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-self: auto;
+    align-content: flex-start;
+    gap: 1rem;
+  }
 }
 
 .input {
@@ -163,12 +198,12 @@ form .capitalize input {
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: stretch;
-  align-self: auto;
+  align-self: stretch;
   align-content: flex-start;
   gap: 0.5em;
   width: 100%;
   padding: 1rem;
-  height: 7.6rem;
+  min-height: 7.6rem;
   border-radius: 5px;
   border: solid 1px #cccccc;
   background-color: #f3f3f3;
@@ -285,17 +320,18 @@ fieldset .feedback {
 }
 
 .valid {
-  border: solid 3px #2ECC71;
+  outline: solid 3px #2ECC71;
   background-color: #e2e2e2;
 }
 
 .invalid {
-  border: solid 3px #E72525;
+  outline: solid 3px #ca2121;
   background-color: #e2e2e2;
 }
 
 .helptext {
-  height: 1em;
+  padding-left: 2px;
+  margin-bottom: 2px;
   font-size: 12px;
 }
 
@@ -337,7 +373,7 @@ fieldset .feedback {
 }
 
 .xmark {
-  background-color: #E72525;
+  background-color: #ca2121;
   color: #ffffff;
 }
 
@@ -350,6 +386,8 @@ fieldset .feedback {
 .feedback {
   height: 1em;
   font-weight: 500;
+  font-size: 14px;
+  padding-left: 2px;
 }
 
 .success-page {
