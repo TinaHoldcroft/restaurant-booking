@@ -157,7 +157,7 @@ function BookingForm() {
                                 id='firstName'
                                 type='text'
                                 name='firstName'
-                                className='input'
+                                className='input capitalize'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 onInput={function (e) {
@@ -170,7 +170,7 @@ function BookingForm() {
                                 id='lastName'
                                 type='text'
                                 name='lastName'
-                                className='input'
+                                className='input capitalize'
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
                                 onInput={function (e) {

@@ -1,15 +1,18 @@
 .form-wrapper {
     width: 100%;
     padding: 3rem 6rem 4rem 6rem;
+
     h1 {
         margin-bottom: 2rem;
         padding-bottom: 1rem;
         border-bottom: solid 1px $medium-grey;
     }
 }
+
 form {
     @include flex(column nowrap, flex-start, stretch, auto, flex-start, 1rem);
     width: 100%;
+
     label {
         width: 100%;
         font-weight: 700;
@@ -17,6 +20,7 @@ form {
         font-size: 0.8em;
         cursor: pointer;
     }
+
     input[type="text"],
     input[type="tel"],
     input[type="email"],
@@ -30,38 +34,50 @@ form {
         letter-spacing: 0.05em;
         background-color: $white;
         border: solid 1px $medium-grey;
+
         &:hover {
             border: solid 1px $medium-grey;
             outline: solid 2px $medium-grey;
         }
+
         &:focus {
             border: solid 1px $black;
             outline: solid 2px $black;
         }
     }
+
     input[type="radio"] {
         height: 1rem;
         width: 1rem;
         accent-color: $blue;
     }
+
     textarea {
         min-height: 5rem;
         border-radius: 3px;
         border: solid 1px $medium-grey;
         padding: 0.75em;
+
         &:hover {
             border: solid 1px $medium-grey;
             outline: solid 2px $medium-grey;
         }
+
         &:focus {
             border: solid 1px $black;
             outline: solid 2px $black;
         }
     }
+
+    .capitalize input {
+        text-transform: capitalize;
+    }
 }
+
 .form-row {
     @include flex(row nowrap, space-between, center, auto, flex-start, 1rem);
 }
+
 .input {
     @include flex(column nowrap, flex-start, stretch, auto, flex-start, 0.5em);
     width: 100%;
@@ -71,6 +87,7 @@ form {
     border: solid 1px $medium-grey;
     background-color: $light-grey;
 }
+
 .comment {
     @include flex(column nowrap, flex-start, stretch, auto, flex-start, 0.5em);
     border: solid 1px $medium-grey;
@@ -79,6 +96,7 @@ form {
     padding: 0.75em;
     flex: 2.17;
 }
+
 fieldset {
     @include flex(row nowrap, flex-start, stretch, auto, flex-start, 1rem);
     width: 100%;
@@ -86,16 +104,19 @@ fieldset {
     border-radius: 5px;
     border: solid 1px $medium-grey;
     background-color: $light-grey;
+
     legend {
         font-weight: 700;
         letter-spacing: 0.05em;
         font-size: 0.8em;
     }
+
     .radio {
         @include flex(row-reverse nowrap, flex-start, center, auto, flex-start, 1rem);
         border: solid 3px transparent;
         background-color: transparent;
         width: 7rem;
+
         &:focus-within,
         &:hover {
             input {
@@ -103,6 +124,7 @@ fieldset {
                 outline-width: 2px;
                 outline-style: dashed;
             }
+
             label {
                 text-decoration: underline;
                 text-decoration-thickness: 2px;
@@ -110,12 +132,15 @@ fieldset {
             }
         }
     }
+
     .feedback {
         display: none;
     }
 }
+
 .btn-wrapper {
     @include flex(row nowrap, flex-start, center, auto, flex-start, 1rem);
+
     button {
         border-radius: 5px;
         padding: 1em 1.5em;
@@ -124,30 +149,36 @@ fieldset {
         letter-spacing: 0.05em;
     }
 }
+
 #submit {
     background-color: $blue;
     color: $white;
     border: solid 2px $blue;
+
     &:focus,
     &:hover {
         border: solid 2px $blue;
         background-color: $white;
         color: $black;
     }
+
     &:active {
         border: solid 2px $medium-grey;
         background-color: $light-grey;
     }
 }
+
 #reset {
     background-color: $light-grey;
     border: solid 2px $blue;
+
     &:focus,
     &:hover {
         background-color: $blue;
         color: $white;
         border: solid 2px $blue;
     }
+
     &:active {
         border: solid 2px $medium-grey;
         background-color: $light-grey;

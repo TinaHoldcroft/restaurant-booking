@@ -131,6 +131,9 @@ form textarea:focus {
   border: solid 1px #000000;
   outline: solid 2px #000000;
 }
+form .capitalize input {
+  text-transform: capitalize;
+}
 
 .form-row {
   display: -webkit-box;
