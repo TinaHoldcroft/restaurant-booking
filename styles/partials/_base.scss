@@ -7,19 +7,23 @@
     font-family: montserrat, sans-serif;
     outline-color: $blue;
 }
+
 html {
     overflow-y: auto;
     overflow-x: hidden;
 }
+
 html,
 body {
     scroll-behavior: smooth;
 }
+
 body {
     @include flex(column nowrap, flex-start, center, auto, flex-start, 0);
     background-color: #eeeeee;
     margin-bottom: 4rem;
 }
+
 main {
     @include flex(column nowrap, flex-start, center, auto, flex-start, 0);
     background-color: $white;

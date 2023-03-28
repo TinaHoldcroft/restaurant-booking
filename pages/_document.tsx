@@ -14,7 +14,7 @@ class MyDocument extends Document {
             <Html lang={lang}>
                 <Head>
                     <meta name='author' content='Tina Mary Holdcroft' />
-                    <meta name='description' content='Finn exercise 01'/>
+                    <meta name='description' content='Finn exercise 01' />
                 </Head>
 
                 <body>
