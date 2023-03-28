@@ -1,8 +1,22 @@
-@import "partials/variables";
-@import "partials/mixins";
+@import 
+        'abstracts/breakpoints',
+        'abstracts/variable',
+        'abstracts/keyframes',
+        'abstracts/mixins';
 
-@import "partials/base";
-@import "partials/form";
-@import "partials/feedback";
-@import "partials/success";
+@import 'base/base', 
+        'base/typography';
 
+@import 'components/nav',
+        'components/form',
+        'components/feedback',
+        'components/footer';
+
+@import 'layout/layout';
+
+@import 'pages/index',
+        'pages/success';
+
+@import 'themes/themes';
+
+@import 'vendors/vendors';
