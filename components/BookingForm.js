@@ -262,7 +262,7 @@ function BookingForm() {
                             }}
                             form='BookingForm'
                         >
-                            <legend>Select Type</legend>
+                            <legend className='sr-only'>Select Type</legend>
                             <TextInputLiveFeedback
                                 label='Private'
                                 id='private'

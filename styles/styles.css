@@ -211,10 +211,7 @@ fieldset {
   align-content: flex-start;
   gap: 1rem;
   width: 100%;
-  padding: 1rem;
-  border-radius: 5px;
-  border: solid 1px #cccccc;
-  background-color: #f3f3f3;
+  border: none;
 }
 fieldset legend {
   font-weight: 700;
@@ -232,20 +229,13 @@ fieldset .radio {
   align-items: center;
   align-self: auto;
   align-content: flex-start;
-  gap: 1rem;
-  border: solid 3px transparent;
+  gap: 0.5rem;
   background-color: transparent;
-  width: 7rem;
-}
-fieldset .radio:focus-within input, fieldset .radio:hover input {
-  outline-offset: 0.25em;
-  outline-width: 2px;
-  outline-style: dashed;
-}
-fieldset .radio:focus-within label, fieldset .radio:hover label {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-decoration-color: #30588e;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: solid 1px #cccccc;
+  background-color: #f3f3f3;
 }
 fieldset .feedback {
   display: none;

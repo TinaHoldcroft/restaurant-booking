@@ -100,10 +100,7 @@ form {
 fieldset {
     @include flex(row nowrap, flex-start, stretch, auto, flex-start, 1rem);
     width: 100%;
-    padding: 1rem;
-    border-radius: 5px;
-    border: solid 1px $medium-grey;
-    background-color: $light-grey;
+    border: none;
 
     legend {
         font-weight: 700;
@@ -112,27 +109,15 @@ fieldset {
     }
 
     .radio {
-        @include flex(row-reverse nowrap, flex-start, center, auto, flex-start, 1rem);
-        border: solid 3px transparent;
+        @include flex(row-reverse nowrap, flex-start, center, auto, flex-start, 0.5rem);
         background-color: transparent;
-        width: 7rem;
-
-        &:focus-within,
-        &:hover {
-            input {
-                outline-offset: 0.25em;
-                outline-width: 2px;
-                outline-style: dashed;
-            }
-
-            label {
-                text-decoration: underline;
-                text-decoration-thickness: 2px;
-                text-decoration-color: $blue;
-            }
-        }
+        width: 100%;
+        padding: 1rem;
+        border-radius: 5px;
+        border: solid 1px $medium-grey;
+        background-color: $light-grey;
     }
-
+    
     .feedback {
         display: none;
     }
