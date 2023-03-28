@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Finn exersise 01</title>
+                <title>Booking Form</title>
             </Head>
 
             <BookingForm />
