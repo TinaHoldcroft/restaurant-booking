@@ -46,12 +46,6 @@ form {
         }
     }
 
-    input[type="radio"] {
-        height: 1rem;
-        width: 1rem;
-        accent-color: $blue;
-    }
-
     textarea {
         min-height: 5rem;
         border-radius: 3px;
@@ -102,22 +96,18 @@ fieldset {
     width: 100%;
     border: none;
 
-    legend {
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        font-size: 0.8em;
-    }
-
     .radio {
-        @include flex(row-reverse nowrap, flex-start, center, auto, flex-start, 0.5rem);
+        @include flex(row-reverse nowrap, flex-end, center, auto, flex-start, 0.5rem);
         background-color: transparent;
         width: 100%;
         padding: 1rem;
         border-radius: 5px;
         border: solid 1px $medium-grey;
         background-color: $light-grey;
+        accent-color: $blue;
+        text-transform: capitalize;
     }
-    
+
     .feedback {
         display: none;
     }

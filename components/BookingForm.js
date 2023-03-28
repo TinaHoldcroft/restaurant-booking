@@ -263,22 +263,24 @@ function BookingForm() {
                             form='BookingForm'
                         >
                             <legend className='sr-only'>Select Type</legend>
-                            <TextInputLiveFeedback
-                                label='Private'
-                                id='private'
-                                type='radio'
-                                name='type'
-                                value='private'
-                                className='radio'
-                            />
-                            <TextInputLiveFeedback
-                                label='Business'
-                                id='business'
-                                type='radio'
-                                name='type'
-                                value='business'
-                                className='radio'
-                            />
+                            <label htmlFor='private' className='radio'>
+                                private
+                                <input
+                                    id='private'
+                                    type='radio'
+                                    name='type'
+                                    value='private'
+                                />
+                            </label>
+                            <label htmlFor='business' className='radio'>
+                                business
+                                <input
+                                    id='business'
+                                    type='radio'
+                                    name='type'
+                                    value='business'
+                                />
+                            </label>
                         </fieldset>
                         <div className='comment'>
                             <label htmlFor='comment'>Comment</label>
