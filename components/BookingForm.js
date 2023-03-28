@@ -41,7 +41,6 @@ const validationSchema = Yup.object({
 
     departure: Yup
         .string()
-        .min()
         .required('We need your departure time'),
     amount: Yup
         .number()
