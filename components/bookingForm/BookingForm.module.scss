@@ -1,0 +1,44 @@
+@use "@/styles/abstracts/breakpoints" as *;
+@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/abstracts/variables" as *;
+
+.form {
+	@include flex(column nowrap, flex-start, stretch, auto, flex-start, 0);
+	width: 100%;
+}
+
+.form__container {
+	@include flex(row wrap, flex-start, stretch, auto, flex-start, 3rem);
+	width: 100%;
+}
+
+.col {
+	@include flex(column nowrap, flex-start, stretch, auto, flex-start, 0);
+	flex: 1;
+	width: 100%;
+
+	@include respond-to("medium") {
+		min-width: 400px;
+	}
+}
+
+.row {
+	@include flex(column nowrap, flex-start, stretch, auto, center, 1rem);
+	width: 100%;
+
+	@include respond-to("medium") {
+		@include flex(row nowrap, flex-start, stretch, auto, center, 1rem);
+	}
+}
+
+.guestRow {
+	@include flex(row nowrap, flex-start, stretch, auto, center, 0);
+	width: 100%;
+	margin-bottom: 3rem;
+}
+
+.form__actions {
+	@include flex(row nowrap, center, center, auto, flex-start, 1rem);
+	width: 100%;
+	margin-top: 3rem;
+}

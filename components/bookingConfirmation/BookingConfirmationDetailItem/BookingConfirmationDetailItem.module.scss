@@ -1,0 +1,8 @@
+@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/abstracts/variables" as *;
+
+.bookingConfirmationDetailItem {
+	@include flex(row nowrap, space-between, center, auto, flex-start, 1rem);
+	border-bottom: solid 1px $color-medium-grey;
+	padding: 1em 0;
+}

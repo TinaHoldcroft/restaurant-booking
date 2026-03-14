@@ -1,0 +1,25 @@
+@mixin flex(
+	$flow: column nowrap,
+	$justify-content: flex-start,
+	$align-items: stretch,
+	$align-self: auto,
+	$align-content: flex-start,
+	$gap: 1rem
+) {
+	display: flex;
+	flex-flow: $flow;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	align-self: $align-self;
+	align-content: $align-content;
+	gap: $gap;
+}
+
+//@include flex(column nowrap, flex-start, stretch, auto, flex-start, 0);
+
+@mixin label-float($transform, $bg-color) {
+	transform: $transform;
+	font-size: 0.75em;
+	background-color: $bg-color;
+	line-height: 4px;
+}

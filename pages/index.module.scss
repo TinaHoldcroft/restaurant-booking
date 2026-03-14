@@ -1,0 +1,14 @@
+@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/abstracts/variables" as *;
+
+.homepage {
+	width: 100%;
+
+	&__title {
+		font-size: clamp(2.5rem, 5vw + 2rem, 4rem);
+		font-weight: 300;
+		text-align: center;
+		margin-bottom: 5rem;
+		color: $color-black;
+	}
+}

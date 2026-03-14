@@ -1,0 +1,157 @@
+@use "@/styles/abstracts/breakpoints";
+@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/abstracts/variables" as *;
+
+$default-font-size: 1rem;
+$label-transform: translateY(-1.25em);
+$label-margin: 1em 0.75em;
+
+$input-height: 3rem;
+$affix-width: 2.5rem;
+
+.textfield {
+	@include flex(column nowrap, flex-start, stretch, auto, flex-start, 0);
+	position: relative;
+	width: 100%;
+	margin-bottom: 0.5rem;
+
+	&__inputWrapper {
+		position: relative;
+		width: 100%;
+		@include flex(row nowrap, flex-start, center, auto, flex-start, 0);
+	}
+
+	&__affix,
+	&__suffix {
+		@include flex(column nowrap, center, center, auto, flex-start, 0);
+		position: absolute;
+		top: 0;
+		height: $input-height;
+	}
+
+	&__affix {
+		left: 0;
+		width: $affix-width;
+		background-color: transparent;
+	}
+
+	&__suffix {
+		right: 0;
+		aspect-ratio: 1;
+	}
+
+	&__input {
+		padding: 0.6rem 0.75rem 0.4rem 0.75rem;
+		border: 1px solid transparent;
+		border-radius: 0.25em;
+		width: 100%;
+		height: $input-height;
+		font-size: $default-font-size;
+		font-family: inherit;
+		outline: 1px solid $color-medium-grey;
+		background-color: $color-white;
+		color: $color-black;
+
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-decoration {
+			-webkit-appearance: none;
+			appearance: none;
+		}
+
+		&::-ms-clear {
+			display: none;
+		}
+
+		&:placeholder-shown {
+			text-overflow: ellipsis;
+		}
+
+		&--has-value {
+			outline: 1px solid $color-black;
+		}
+
+		&--is-invalid {
+			outline-color: $error-color;
+		}
+
+		&--has-affix {
+			padding-left: $affix-width;
+		}
+	}
+
+	&__label {
+		line-height: 1.2em;
+		position: absolute;
+		z-index: 1;
+		transition: all 0.1s;
+		margin: $label-margin;
+		left: 0;
+		font-weight: 500;
+		padding: 0 0.15em;
+		font-size: $default-font-size;
+		color: $color-black;
+		background-color: $color-white;
+
+		&--has-value {
+			@include label-float($label-transform, $color-white);
+		}
+
+		&--is-invalid {
+			&.textfield__label--has-value {
+				color: $error-color;
+			}
+		}
+
+		&--has-affix:not(.textfield__label--has-value) {
+			left: $affix-width;
+			padding-left: 0;
+			margin-left: 0;
+		}
+	}
+
+	&:focus-within {
+		.textfield__input {
+			outline-offset: 0 !important;
+			outline: 1px solid $color-black;
+
+			&.textfield__input--is-invalid {
+				outline-color: $error-color;
+			}
+		}
+
+		.textfield__label {
+			@include label-float($label-transform, $color-white);
+			left: 0;
+			margin: $label-margin;
+
+			&--is-invalid {
+				color: $error-color;
+			}
+		}
+	}
+
+	:-webkit-autofill,
+	:autofill {
+		-webkit-box-shadow: 0 0 0 1000px $color-white inset;
+
+		& + .textfield__label {
+			@include label-float($label-transform, $color-white);
+		}
+	}
+}
+
+.help-text {
+	@include flex(row nowrap, flex-start, center, auto, flex-start, 0.5em);
+	height: 1.75rem;
+	font-size: 0.75em;
+	color: $color-dark-grey;
+
+	&--error {
+		color: $error-color;
+	}
+}
+
+.textarea__input {
+	width: 100%;
+	height: 8rem;
+}

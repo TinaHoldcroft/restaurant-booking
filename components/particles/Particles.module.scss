@@ -1,0 +1,196 @@
+@use "sass:math";
+
+.particle-container {
+	position: fixed;
+	inset: 0;
+	z-index: -9999;
+	overflow: clip;
+	pointer-events: none;
+}
+
+.particle {
+	--particle-blur: 80px;
+	--animation-duration: 10s;
+
+	position: absolute;
+	inset-inline-start: 0;
+	border-radius: 50%;
+	z-index: -9999;
+	overflow: clip;
+	filter: blur(var(--particle-blur));
+	will-change: transform;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation-play-state: paused;
+	}
+}
+
+// Particle 1
+@keyframes particle-animation-1 {
+	to {
+		transform: translate3d(45vw, 60vh, 50px);
+	}
+}
+
+.particle:nth-child(1) {
+	--size: 450px;
+	animation: particle-animation-1 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -0.2s;
+	transform: translate3d(20vw, 30vh, 20px);
+	background: radial-gradient(circle, oklch(0.45 0.2 300 / 0.6), transparent);
+}
+
+// Particle 2
+@keyframes particle-animation-2 {
+	to {
+		transform: translate3d(70vw, 40vh, 80px);
+	}
+}
+
+.particle:nth-child(2) {
+	--size: 520px;
+	animation: particle-animation-2 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -0.4s;
+	transform: translate3d(50vw, 20vh, 40px);
+	background: radial-gradient(circle, oklch(0.6 0.25 350 / 0.6), transparent);
+}
+
+// Particle 3
+@keyframes particle-animation-3 {
+	to {
+		transform: translate3d(30vw, 75vh, 30px);
+	}
+}
+
+.particle:nth-child(3) {
+	--size: 400px;
+	animation: particle-animation-3 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -0.6s;
+	transform: translate3d(60vw, 50vh, 60px);
+	background: radial-gradient(circle, oklch(0.55 0.22 10 / 0.6), transparent);
+}
+
+// Particle 4
+@keyframes particle-animation-4 {
+	to {
+		transform: translate3d(80vw, 55vh, 90px);
+	}
+}
+
+.particle:nth-child(4) {
+	--size: 480px;
+	animation: particle-animation-4 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -0.8s;
+	transform: translate3d(10vw, 70vh, 10px);
+	background: radial-gradient(circle, oklch(0.45 0.2 300 / 0.6), transparent);
+}
+
+// Particle 5
+@keyframes particle-animation-5 {
+	to {
+		transform: translate3d(25vw, 35vh, 70px);
+	}
+}
+
+.particle:nth-child(5) {
+	--size: 550px;
+	animation: particle-animation-5 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -1s;
+	transform: translate3d(75vw, 15vh, 85px);
+	background: radial-gradient(circle, oklch(0.6 0.25 350 / 0.6), transparent);
+}
+
+// Particle 6
+@keyframes particle-animation-6 {
+	to {
+		transform: translate3d(55vw, 80vh, 45px);
+	}
+}
+
+.particle:nth-child(6) {
+	--size: 420px;
+	animation: particle-animation-6 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -1.2s;
+	transform: translate3d(35vw, 45vh, 25px);
+	background: radial-gradient(circle, oklch(0.55 0.22 10 / 0.6), transparent);
+}
+
+// Particle 7
+@keyframes particle-animation-7 {
+	to {
+		transform: translate3d(65vw, 25vh, 95px);
+	}
+}
+
+.particle:nth-child(7) {
+	--size: 490px;
+	animation: particle-animation-7 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -1.4s;
+	transform: translate3d(5vw, 65vh, 35px);
+	background: radial-gradient(circle, oklch(0.45 0.2 300 / 0.6), transparent);
+}
+
+// Particle 8
+@keyframes particle-animation-8 {
+	to {
+		transform: translate3d(40vw, 50vh, 55px);
+	}
+}
+
+.particle:nth-child(8) {
+	--size: 460px;
+	animation: particle-animation-8 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -1.6s;
+	transform: translate3d(85vw, 10vh, 75px);
+	background: radial-gradient(circle, oklch(0.6 0.25 350 / 0.6), transparent);
+}
+
+// Particle 9
+@keyframes particle-animation-9 {
+	to {
+		transform: translate3d(15vw, 70vh, 20px);
+	}
+}
+
+.particle:nth-child(9) {
+	--size: 510px;
+	animation: particle-animation-9 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -1.8s;
+	transform: translate3d(55vw, 35vh, 65px);
+	background: radial-gradient(circle, oklch(0.55 0.22 10 / 0.6), transparent);
+}
+
+// Particle 10
+@keyframes particle-animation-10 {
+	to {
+		transform: translate3d(75vw, 45vh, 85px);
+	}
+}
+
+.particle:nth-child(10) {
+	--size: 440px;
+	animation: particle-animation-10 var(--animation-duration) infinite alternate ease-in-out;
+	block-size: var(--size);
+	inline-size: var(--size);
+	animation-delay: -2s;
+	transform: translate3d(25vw, 60vh, 15px);
+	background: radial-gradient(circle, oklch(0.45 0.2 300 / 0.6), transparent);
+}

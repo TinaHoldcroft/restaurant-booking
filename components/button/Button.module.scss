@@ -1,0 +1,44 @@
+@use "@/styles/abstracts/breakpoints" as *;
+@use "@/styles/abstracts/mixins" as *;
+@use "@/styles/abstracts/variables" as *;
+
+@use "sass:color";
+
+.button {
+	@include flex(row nowrap, center, center, auto, flex-start, 0.75em);
+	padding: 0.75em 1.5em;
+	font-size: 1rem;
+	line-height: 1em;
+	font-weight: 500;
+	border-radius: 8px;
+	text-box-trim: trim-both;
+	width: fit-content;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		transform 0.1s ease;
+
+	&--link {
+		text-decoration: none;
+	}
+
+	&--primary {
+		border: none;
+		background-color: $color-black;
+		color: $color-white;
+
+		&:hover {
+			background-color: color.adjust($color-black, $lightness: -10%);
+		}
+	}
+
+	&--secondary {
+		border: 1px solid $color-medium-grey;
+		background-color: $color-white;
+		color: $color-black;
+	}
+
+	&:active {
+		transform: scale(0.96);
+	}
+}

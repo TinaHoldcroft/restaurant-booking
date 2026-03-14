@@ -1,0 +1,60 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+@use "sass:math";
+
+$table-diameter: 60px;
+$chair-size: 12px;
+$chair-gap: 20px;
+$animation-duration: 0.3s;
+
+$table-radius: math.div($table-diameter, 2);
+$chair-distance: $table-radius + $chair-gap;
+$container-size: ($chair-distance + $chair-size) * 2;
+
+.tableVisualization {
+	@include flex(row center, center, center, center, center, 0);
+	width: 100%;
+	position: relative;
+	height: fit-content;
+	min-height: $container-size;
+
+	&__table {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: $table-diameter;
+		height: $table-diameter;
+		background-color: $color-black;
+		border-radius: 50%;
+	}
+
+	&__chairWrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transition: transform $animation-duration ease-in-out;
+	}
+
+	&__chair {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: $chair-size;
+		height: $chair-size;
+		background-color: $color-black;
+		animation: chairAppear $animation-duration ease-in-out forwards;
+	}
+}
+
+@keyframes chairAppear {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}

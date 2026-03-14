@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/breakpoints" as *;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline-color: $primary-color;
+}
+
+html {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+html,
+body {
+	scroll-behavior: smooth;
+}
+
+body {
+	@include flex(column nowrap, center, center, auto, flex-start, 0);
+	min-block-size: 100vh;
+	min-block-size: 100dvh;
+	padding-block-end: 10vh;
+}
+
+main {
+	@include flex(column nowrap, flex-start, center, auto, flex-start, 0);
+	margin-block: 2rem;
+	margin-inline: auto;
+	padding: clamp(2rem, 5vw, 4rem);
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.76);
+	backdrop-filter: blur(7.5px);
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	inline-size: min(90vw, 1200px);
+	max-inline-size: 1200px;
+}
